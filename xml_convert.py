@@ -61,7 +61,10 @@ def main():
         st.divider()
 
         if st.button('Exportar para Excel'):
-            st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+            with st.spinner('Convertendo para Excel...'):
+                sleep(3)
+                st.info('Conversão concluída, Clique no link abaixo para efetuar o download.')
+                st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()

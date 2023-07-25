@@ -56,6 +56,10 @@ def main():
 
         st.divider()
         df = pd.DataFrame(data, columns=["Nota", "Emissor", "Cliente", "Rua", "Numero", "Municipio", "Peso Bruto"])
+        
+        # Remove notas fiscais duplicadas
+        df = df.drop_duplicates(subset=['Nota'], keep='first')
+        
         st.header('Dados Extraídos')
         st.dataframe(df)
 

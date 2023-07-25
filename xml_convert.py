@@ -11,18 +11,27 @@ def extract_info_from_xml(file) -> List[str]:
     try:
         root = ET.parse(file).getroot()
 
-        nota = root.find(".//{http://www.portalfiscal.inf.br/nfe}nNF").text or ""
-        emissor = root.find(".//{http://www.portalfiscal.inf.br/nfe}xNome").text or ""
-        cliente = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}xNome").text or ""
-        rua = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}xLgr").text or ""
-        numero = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}nro").text or ""
-        municipio = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}xMun").text or ""
+        nota_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}nNF")
+        nota = nota_element.text if nota_element is not None else ""
+
+        # Do the same for the other elements
+        emissor_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}xNome")
+        emissor = emissor_element.text if emissor_element is not None else ""
+
+        cliente_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}xNome")
+        cliente = cliente_element.text if cliente_element is not None else ""
+
+        rua_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}xLgr")
+        rua = rua_element.text if rua_element is not None else ""
+
+        numero_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}nro")
+        numero = numero_element.text if numero_element is not None else ""
+
+        municipio_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}dest//{http://www.portalfiscal.inf.br/nfe}xMun")
+        municipio = municipio_element.text if municipio_element is not None else ""
 
         peso_bruto_element = root.find(".//{http://www.portalfiscal.inf.br/nfe}vol//{http://www.portalfiscal.inf.br/nfe}pesoB")
-        if peso_bruto_element is not None:
-            peso_bruto = peso_bruto_element.text
-        else:
-            peso_bruto = ""
+        peso_bruto = peso_bruto_element.text if peso_bruto_element is not None else ""
 
         return [nota, emissor, cliente, rua, numero, municipio, peso_bruto]
 

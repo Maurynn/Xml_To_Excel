@@ -41,7 +41,7 @@ def to_excel(df):
 def get_table_download_link(df):
     val = to_excel(df)
     b64 = base64.b64encode(val)  # val looks like b'...'
-    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="NotaFiscal.xlsx">Download Excel file</a>' 
+    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="NotaFiscal.xlsx">Download arquivo Excel</a>' 
 
 def main():
     st.image("imagens/logotipos.png")

@@ -1,1 +1,6 @@
-
+pandas
+lxml.etree
+typing
+streamlit
+io
+base64

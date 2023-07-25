@@ -2,4 +2,4 @@ pandas
 lxml
 typing
 streamlit
-base64
+base64==1.0.0

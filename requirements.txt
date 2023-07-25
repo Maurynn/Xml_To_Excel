@@ -2,4 +2,3 @@ pandas
 lxml
 typing
 streamlit
-xlswriter

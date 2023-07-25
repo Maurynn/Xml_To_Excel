@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import time
 import lxml.etree as ET
 from typing import List
 import streamlit as st

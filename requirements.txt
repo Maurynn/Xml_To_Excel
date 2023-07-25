@@ -2,4 +2,4 @@ pandas
 lxml
 typing
 streamlit
-xlswrite==3.1.2
+xlswriter==3.1.2

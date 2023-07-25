@@ -9,9 +9,6 @@ import base64
 
 def extract_info_from_xml(file) -> List[str]:
     try:
-        if file.type != 'text/xml':
-            st.error(f"Arquivo não suportado: {file.name}. Por favor, faça upload apenas de arquivos XML.")
-            return [""] * 7
         root = ET.parse(file).getroot()
 
         nota = root.find(".//{http://www.portalfiscal.inf.br/nfe}nNF").text or ""

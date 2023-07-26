@@ -55,7 +55,7 @@ def get_table_download_link(df):
 def main():
     st.image("imagens/IMG_20230726_125320.png")
     with st.expander('sobre:'):
-        st.write("")
+        st.write("blablabla")
         
     st.divider()
     uploaded_files = st.file_uploader("Carregue seus arquivos XML", type=['xml'], accept_multiple_files=True)

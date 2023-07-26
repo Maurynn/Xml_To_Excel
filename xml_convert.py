@@ -52,7 +52,7 @@ def get_table_download_link(df):
     b64 = base64.b64encode(val)  # val looks like b'...'
     return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="NotaFiscal.xlsx">Download arquivo Excel</a>'
 
- def main():
+def main():
     st.image("imagens/Photo.png")
     st.divider()
     uploaded_files = st.file_uploader("Carregue seus arquivos XML", type=['xml'], accept_multiple_files=True)
@@ -77,6 +77,7 @@ def get_table_download_link(df):
                 sleep(3)
                 st.info('Conversão concluída, Clique no link abaixo para efetuar o download.')
                 st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+            st.divider()
 
 if __name__ == "__main__":
     main()

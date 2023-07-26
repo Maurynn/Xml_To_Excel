@@ -57,21 +57,32 @@ def main():
     st.divider()
     with st.expander('Sobre o NF-e Data Converter'):
         st.write("""
-          O NF-e Data Converter é uma ferramenta criada para facilitar o processo de extração de informações relevantes de arquivos de Nota Fiscal Eletrônica (NF-e) em formato XML. 
-          A ferramenta foi desenvolvida para simplificar a conversão de arquivos XML de notas fiscais em um formato de dados mais fácil de analisar e manipular.
+            O NF-e Data Converter é uma ferramenta criada para facilitar o processo de extração de informações relevantes de arquivos de Nota Fiscal Eletrônica (NF-e) em formato XML. 
+            A ferramenta foi desenvolvida para simplificar a conversão de arquivos XML de notas fiscais em um formato de dados mais fácil de analisar e manipular.
 
-          FUNCIONALIDADES PRINCIPAIS:
+            FUNCIONALIDADES PRINCIPAIS:
           
-        ▫️Carregamento de Múltiplos Arquivos: A ferramenta permite o carregamento de vários arquivos XML de uma só vez, tornando o processo mais eficiente.
+           ◽Carregamento de Múltiplos Arquivos: A ferramenta permite o carregamento de vários arquivos XML de uma só vez, tornando o processo mais eficiente.
         
-        ▫️Extração de Dados: Os dados são extraídos de cada arquivo XML, incluindo informações importantes como número da nota, emissor, cliente, endereço, município e peso bruto.
+           ◽Extração de Dados: Os dados são extraídos de cada arquivo XML, incluindo informações importantes como número da nota, emissor, cliente, endereço, município e peso bruto.
         
-        ▫️Tratamento de Erros: A ferramenta inclui tratamento de erros robusto, garantindo que os arquivos sejam analisados corretamente e que os erros sejam informados de forma clara e compreensível.
+           ◽Tratamento de Erros: A ferramenta inclui tratamento de erros robusto, garantindo que os arquivos sejam analisados corretamente e que os erros sejam informados de forma clara e compreensível.
         
-        ▫️Exportação de Dados: Os dados extraídos podem ser exportados para um arquivo Excel para análise posterior, tudo com apenas um clique.
+           ◽Exportação de Dados: Os dados extraídos podem ser exportados para um arquivo Excel para análise posterior, tudo com apenas um clique.
         
-        ▫️Visualização de Dados: Os dados extraídos são exibidos em um DataFrame para uma visualização clara e organizada das informações.""")
-        
+           ◽Visualização de Dados: Os dados extraídos são exibidos em um DataFrame para uma visualização clara e organizada das informações.""")
+    with st.expander('Setores Beneficiados'):
+        st.write("""
+           ◽Logística: Otimiza a gestão de cargas através da análise rápida de dados das NF-e.
+           
+           ◽Varejo: Melhora a gestão de vendas e compras ao processar informações de NF-e em grande volume.
+           
+           ◽Finanças: Proporciona uma coleta precisa e organizada de informações para controle financeiro e tributário.
+           
+           ◽Jurídico: Facilita a extração de informações para casos de litígios comerciais.
+           
+           ◽Tecnologia da Informação: Auxilia no desenvolvimento de soluções para gerenciamento de NF-e. """)
+    
     st.divider()
     uploaded_files = st.file_uploader("Carregue seus arquivos XML", type=['xml'], accept_multiple_files=True)
     st.divider()

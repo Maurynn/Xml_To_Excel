@@ -107,16 +107,23 @@ def main():
         st.subheader("Análise de Dados")
 
         total_notas = df['Nota'].nunique()
+        unique_emissores = df['Emissor'].nunique()
         unique_clientes = df['Cliente'].nunique()
-        total_peso_bruto = df['Peso Bruto'].sum()
-
-        # Create a data frame for the summary
-        summary_df = pd.DataFrame({"Número total de notas fiscais": total_notas,
-                                       "Número de clientes únicos": unique_clientes,
-                                       "Peso bruto total": total_peso_bruto}, 
-                                       index=[0])
-
-        # Display the summary table
+        unique_municipios = df['Municipio'].nunique()
+        media_peso_bruto = df['Peso Bruto'].mean()
+        nota_mais_comum = df['Nota'].mode()[0]
+        cliente_mais_comum = df['Cliente'].mode()[0]
+            
+        # Criar um data frame para o resumo
+        summary_df = pd.DataFrame({
+                                    "Número total de notas fiscais": [total_notas],
+                                    "Número de emissores únicos": [unique_emissores],
+                                    "Número de clientes únicos": [unique_clientes],
+                                    "Número de municípios únicos": [unique_municipios],
+                                    "Média de peso bruto": [media_peso_bruto],
+                                    "Nota fiscal mais comum": [nota_mais_comum],
+                                    "Cliente mais comum": [cliente_mais_comum]})
+            
         st.table(summary_df)
 
         if st.button('Exportar para Excel'):

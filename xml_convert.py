@@ -103,22 +103,21 @@ def main():
         st.header('Dados Extraídos')
         st.dataframe(df)
 
-        if not df.empty:
-            st.header("Análise de Dados")
+        # Analysis
+        st.subheader("Análise de Dados")
 
-            total_nfe = len(df)
-            unique_clients = df["Cliente"].nunique()
-            total_peso_bruto = df["Peso Bruto"].astype(float).sum()
+        total_notas = df['Nota'].nunique()
+        unique_clientes = df['Cliente'].nunique()
+        total_peso_bruto = df['Peso Bruto'].sum()
 
-            # Cria um dataframe para a análise
-            df_analysis = pd.DataFrame({
-                'Métricas': ['Número total de notas fiscais', 'Número de clientes únicos', 'Peso bruto total'],
-                'Valores': [total_nfe, unique_clients, total_peso_bruto]
-            })
+        # Create a data frame for the summary
+        summary_df = pd.DataFrame({"Número total de notas fiscais": total_notas,
+                                       "Número de clientes únicos": unique_clientes,
+                                       "Peso bruto total": total_peso_bruto}, 
+                                       index=[0])
 
-            # Cria um gráfico de barras
-            fig = px.bar(df_analysis, x='Métricas', y='Valores', title='Análise de Dados')
-            st.plotly_chart(fig)
+        # Display the summary table
+        st.table(summary_df)
 
         if st.button('Exportar para Excel'):
             with st.spinner('Convertendo para Excel...'):

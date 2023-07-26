@@ -102,6 +102,21 @@ def main():
         st.header('Dados Extraídos')
         st.dataframe(df)
 
+        if df.empty:
+    st.write("No data to show.")
+else:
+    st.subheader("Análise de Dados")
+
+    total_nfe = len(df)
+    st.write(f"Número total de notas fiscais: {total_nfe}")
+
+    unique_clients = df["Cliente"].nunique()
+    st.write(f"Número de clientes únicos: {unique_clients}")
+
+    total_peso_bruto = df["Peso Bruto"].sum()
+    st.write(f"Peso bruto total: {total_peso_bruto}")
+    
+
         if st.button('Exportar para Excel'):
             with st.spinner('Convertendo para Excel...'):
                 sleep(3)
@@ -125,17 +140,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-if df.empty:
-    st.write("No data to show.")
-else:
-    st.subheader("Análise de Dados")
-
-    total_nfe = len(df)
-    st.write(f"Número total de notas fiscais: {total_nfe}")
-
-    unique_clients = df["Cliente"].nunique()
-    st.write(f"Número de clientes únicos: {unique_clients}")
-
-    total_peso_bruto = df["Peso Bruto"].sum()
-    st.write(f"Peso bruto total: {total_peso_bruto}")

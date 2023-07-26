@@ -54,7 +54,8 @@ def get_table_download_link(df):
 
 def main():
     st.image("imagens/IMG_20230726_125320.png")
-    with st.expander('SOBRE O NF-e DATA CONVERTER'):
+    st.divider()
+    with st.expander('Sobre o NF-e Data Converter'):
         st.write("""
           O NF-e Data Converter é uma ferramenta criada para facilitar o processo de extração de informações relevantes de arquivos de Nota Fiscal Eletrônica (NF-e) em formato XML. 
           A ferramenta foi desenvolvida para simplificar a conversão de arquivos XML de notas fiscais em um formato de dados mais fácil de analisar e manipular.

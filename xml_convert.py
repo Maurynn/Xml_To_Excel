@@ -100,7 +100,7 @@ def main():
         # Remove notas fiscais duplicadas
         df = df.drop_duplicates(subset=['Nota'], keep='first')
         
-        st.header('Dados Extraídos')
+        st.subheader('Dados Extraídos')
         st.dataframe(df)
 
         # Analysis

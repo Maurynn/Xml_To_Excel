@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.express as px
 import os
 from time import sleep
 import lxml.etree as ET
@@ -103,16 +104,21 @@ def main():
         st.dataframe(df)
 
         if not df.empty:
-            st.subheader("Análise de Dados")
+            st.header("Análise de Dados")
 
             total_nfe = len(df)
-            st.write(f"Número total de notas fiscais: {total_nfe}")
-
             unique_clients = df["Cliente"].nunique()
-            st.write(f"Número de clientes únicos: {unique_clients}")
-
             total_peso_bruto = df["Peso Bruto"].astype(float).sum()
-            st.write(f"Peso bruto total: {total_peso_bruto}")
+
+            # Cria um dataframe para a análise
+            df_analysis = pd.DataFrame({
+                'Métricas': ['Número total de notas fiscais', 'Número de clientes únicos', 'Peso bruto total'],
+                'Valores': [total_nfe, unique_clients, total_peso_bruto]
+            })
+
+            # Cria um gráfico de barras
+            fig = px.bar(df_analysis, x='Métricas', y='Valores', title='Análise de Dados')
+            st.plotly_chart(fig)
 
         if st.button('Exportar para Excel'):
             with st.spinner('Convertendo para Excel...'):

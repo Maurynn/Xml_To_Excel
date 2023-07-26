@@ -128,6 +128,7 @@ def main():
                 st.info('Conversão concluída, Clique no link abaixo para efetuar o download.')
                 st.markdown(get_table_download_link(df), unsafe_allow_html=True)
         st.divider()
+    st.markdown("Developed by: Mauro Alves")
     st.markdown("""
         <a href="https://github.com/Maurynn" target="_blank" style="margin-right: 15px; text-decoration: none">
         <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo" width="25" height="25">

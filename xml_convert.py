@@ -53,7 +53,7 @@ def get_table_download_link(df):
     return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="NotaFiscal.xlsx">Download arquivo Excel</a>' 
 
 def main():
-    st.image("imagens/photo.png")
+    st.image("imagens/foto.png")
     st.divider()
     uploaded_files = st.file_uploader("Carregue seus arquivos XML", type=['xml'], accept_multiple_files=True)
 

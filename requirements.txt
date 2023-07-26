@@ -3,4 +3,3 @@ lxml
 typing
 streamlit
 xlsxwriter
-plotly

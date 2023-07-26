@@ -77,7 +77,7 @@ def get_table_download_link(df):
                 sleep(3)
                 st.info('Conversão concluída, Clique no link abaixo para efetuar o download.')
                 st.markdown(get_table_download_link(df), unsafe_allow_html=True)
-        st.divider()
+    st.divider()
 
 if __name__ == "__main__":
     main()

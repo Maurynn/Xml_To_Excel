@@ -55,7 +55,12 @@ def get_table_download_link(df):
 def main():
     st.image("imagens/IMG_20230726_125320.png")
     with st.expander('sobre:'):
-        st.write("blablabla")
+        st.write(" Funcionalidades Principais:
+        Carregamento de Múltiplos Arquivos: A ferramenta permite o carregamento de vários arquivos XML de uma só vez, tornando o processo mais eficiente.
+        Extração de Dados: Os dados são extraídos de cada arquivo XML, incluindo informações importantes como número da nota, emissor, cliente, endereço, município e peso bruto.
+        Tratamento de Erros: A ferramenta inclui tratamento de erros robusto, garantindo que os arquivos sejam analisados corretamente e que os erros sejam informados de forma clara e compreensível.
+        Exportação de Dados: Os dados extraídos podem ser exportados para um arquivo Excel para análise posterior, tudo com apenas um clique.
+        Visualização de Dados: Os dados extraídos são exibidos em um DataFrame para uma visualização clara e organizada das informações.")
         
     st.divider()
     uploaded_files = st.file_uploader("Carregue seus arquivos XML", type=['xml'], accept_multiple_files=True)

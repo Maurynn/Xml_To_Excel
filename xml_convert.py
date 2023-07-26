@@ -74,6 +74,7 @@ def main():
         
     st.divider()
     uploaded_files = st.file_uploader("Carregue seus arquivos XML", type=['xml'], accept_multiple_files=True)
+    st.divider()
 
     if uploaded_files:
         data = []
@@ -81,7 +82,7 @@ def main():
             for uploaded_file in uploaded_files:
                 data.append(extract_info_from_xml(uploaded_file))
 
-        st.divider()
+        #st.divider()
         df = pd.DataFrame(data, columns=["Nota", "Emissor", "Cliente", "Rua", "Numero", "Municipio", "Peso Bruto"])
         
         # Remove notas fiscais duplicadas
